@@ -86,7 +86,7 @@ function generateHTML(info, colorSelection, stars) {
     
             main {
                 background-color: #E9EDEE;
-                height: 40%;
+                height: 50%;
                /* height: auto;*/
                 padding-top: 30px;
             }
@@ -153,8 +153,8 @@ function generateHTML(info, colorSelection, stars) {
     
                 text-align: center;
     
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
                 border-radius: 50%;
                 object-fit: cover;
     
@@ -201,7 +201,7 @@ function generateHTML(info, colorSelection, stars) {
             }
     
             .container {
-                height: 40%;
+                height: 50%;
                 padding: 25px;
                 padding-left: 0px;
                 padding-right: 0px;
@@ -245,7 +245,7 @@ function generateHTML(info, colorSelection, stars) {
             }
     
             .bio {
-                padding-top: 10px;
+                padding-top: 30px;
             }
     
             .top {
@@ -290,14 +290,16 @@ function generateHTML(info, colorSelection, stars) {
     
     <body>
         <div class="card photo-header top">
+        <div class="row">
             <img src="${info.data.avatar_url}" class="img">
+        </div>
             <h1>Hi!</h1>
             <h2 id="username">My name is: ${info.data.name}</h2>
             <nav class="links-nav">
-                <a href="${info.data.html_url}" class="nav-link">GitHub</a>
-                <a href="${info.data.blog}" class="nav-link">Blog</a>
-                <a href="https://www.google.com/maps/search/?api=1&query=${info.data.location}"
-                    class="nav-link">${info.data.location}</a>
+            <a href="${info.data.html_url}" class="nav-link"><i class="fab fa-github-alt"></i> GitHub</a>
+            <a href="${info.data.blog}" class="nav-link"><i class="fas fa-rss"></i> Blog</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${info.data.location}" class="nav-link"><i
+                    class="fas fa-location-arrow"></i> ${info.data.location}</a>
             </nav>
         </div>
         <main class="container">
@@ -355,7 +357,6 @@ inquirer
         const starUrl = `https://api.github.com/users/${username}/starred`
         axios.get(queryUrl).then(function (res) {
             axios.get(starUrl).then(function (starRes) {
-                console.log(starRes);
                 pdf.create(generateHTML(res, color, starRes), options).toFile("profile.pdf", function (err) {
                     if (err) {
                         console.log(err);
@@ -367,25 +368,3 @@ inquirer
             })
         })
     });
-
-
-      // fs.writeFile("profile.html", generateHTML(res, color, starRes), function (err) {
-                //     if (err) {
-                //         console.log(err);
-                //     }
-                //     else {
-                //         console.log("Successfully wrote to profile.html")
-                //     }
-                // })
-
-
-            // pdf.create(generateHTML(res, color), options).toFile("profile.pdf", function (err) {
-            //     if (err) {
-            //         console.log(err);
-            //     }
-            //     else {
-            //         console.log("Successfully generated pdf to profile.pdf");
-            //     }
-            // })
-    //     })
-    // });

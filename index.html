@@ -128,8 +128,8 @@
 
             text-align: center;
 
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
 
@@ -272,14 +272,17 @@
 <body>
 
     <div class="card photo-header top">
-        <img src="${info.data.avatar_url}" class="img">
+        <div class="row">
+            <img src="${info.data.avatar_url}" class="img">
+        </div>
+
         <h1>Hi!</h1>
         <h2 id="username">My name is: ${info.data.name}</h2>
         <nav class="links-nav">
-            <a href="${info.data.html_url}" class="nav-link">GitHub</a>
-            <a href="${info.data.blog}" class="nav-link">Blog</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=${info.data.location}"
-                class="nav-link">${info.data.location}</a>
+            <a href="${info.data.html_url}" class="nav-link"><i class="fab fa-github-alt"></i> GitHub</a>
+            <a href="${info.data.blog}" class="nav-link"><i class="fas fa-rss"></i> Blog</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${info.data.location}" class="nav-link"><i
+                    class="fas fa-location-arrow"></i> ${info.data.location}</a>
         </nav>
     </div>
     <main class="container">
