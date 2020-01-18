@@ -305,6 +305,7 @@ function generateHTML(info, colorSelection, stars) {
         <main class="container">
             <div class="row">
                 <h2 class="col bio">${info.data.bio}</h2>
+
             </div>
             <div class="row">
                 <div class="card col stat">
